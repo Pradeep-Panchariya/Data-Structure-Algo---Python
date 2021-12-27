@@ -1,5 +1,5 @@
 This is data structure and algorithm section.
-We are going to learn following data structure.
+We are going to learn the following data structure.
 1. array
 2. Linked list
 3. Stack

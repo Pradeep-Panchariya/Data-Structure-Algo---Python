@@ -35,13 +35,14 @@ class LinkedList:
                 print(n.data)
                 n = n.nextNode
 
-    # Adding the item at the beginning O(1)
+    # O(1) - Time complexity
     def add_begin(self, data):
         self.increment_node += 1
         new_node = Node(data) #Creating the new node
         new_node.nextNode = self.head #Pointing the head pointer to new node
         self.head = new_node# Poiniing the new node pointer to the head node
 
+    # O(N) - Time complexity becaue of while loop - traverse all the linked list
     def add_end(self, data):
         self.increment_node += 1
         new_node = Node(data)
@@ -53,6 +54,7 @@ class LinkedList:
                 n = n.nextNode
             n.nextNode = new_node
 
+    # O(N) : Time complexity
     def add_after(self,data, x):
          n = self.head
          while n is not None:
@@ -66,6 +68,7 @@ class LinkedList:
             new_node.nextNode = n.nextNode
             n.nextNode = new_node
 
+    # O(N) : Running time complexity - while loop
     def add_before(self,data, x):
          if self.head is None:
              print("Linked list is empty")
@@ -85,11 +88,14 @@ class LinkedList:
                  new_node.nextNode = n.nextNode
                  n.nextNode = new_node
 
+    # O(1)
     def remove_begin(self):
         if self.head is None:
             print("There are no Node")
         else:
             self.head = self.head.nextNode
+
+    # O(N)
     def remove_end(self):
         if self.head is None:
             print("The LinkedList is empty")
@@ -99,6 +105,7 @@ class LinkedList:
                 n = n.nextNode
             n.nextNode = None
 
+    # O(N)
     def remove_between(self, element):
         if self.head is None:
             print("LInked List is empty")

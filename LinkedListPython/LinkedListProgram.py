@@ -22,7 +22,6 @@ class LinkedList:
 
     def __init__(self):
         self.head = None
-        self.increment_node = 0
 
     #Traverse the Linked List and print the element.
     def traverse(self):
@@ -37,14 +36,12 @@ class LinkedList:
 
     # O(1) - Time complexity
     def add_begin(self, data):
-        self.increment_node += 1
         new_node = Node(data) #Creating the new node
         new_node.nextNode = self.head #Pointing the head pointer to new node
         self.head = new_node# Poiniing the new node pointer to the head node
 
     # O(N) - Time complexity becaue of while loop - traverse all the linked list
     def add_end(self, data):
-        self.increment_node += 1
         new_node = Node(data)
         if self.head is None:
             self.head = new_node
@@ -122,6 +119,26 @@ class LinkedList:
             else:
                 n.nextNode = n.nextNode.nextNode
 
+    #O(N) - Linear running Time
+    #This method work same as remove_begin,remove_end,remove_between
+
+    def remove(self, element):
+        if self.head is None:
+            print("Linked list is empty")
+            return
+        n  = self.head
+        previous_node = None
+        while n is not None and element !=n.data:
+            previous_node = n
+            n = n.nextNode
+        if n is None:
+            print("Element is not present in the list")
+            return
+        elif previous_node is None:
+            self.head = n.nextNode
+        else:
+            previous_node.nextNode = n.nextNode
+
 
 
 
@@ -139,7 +156,7 @@ if __name__ == '__main__':
     L1.add_end(34)
     L1.add_end(555)
     # print("adding the item after the node")
-    L1.add_after(12,34)
+    L1.add_after(12,43)
     # print("adding the item before the node")
     L1.add_before(66,34)
     L1.add_after(7,555)
@@ -159,4 +176,9 @@ if __name__ == '__main__':
     L1.traverse()
     print("remove middle element")
     L1.remove_between(12)
+    L1.add_end(656)
+
+    L1.traverse()
+    L1.remove(34)
+    print("Remove the item")
     L1.traverse()

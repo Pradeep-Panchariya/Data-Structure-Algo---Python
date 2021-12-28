@@ -24,3 +24,9 @@ insertEnd   | O(N)     | O(1)       |
 waste space | O(N)     | 0          |
 look item   | O(N)     | O(N)       |
 ------------------------------------|
+
+LInked List Application:
+1. Alt+tab in window
+2. photo viewer in window for next and previous photo.
+3. bitcoin or blockchain
+4. browser(edge,chrome, firefox etc) going to next or previous link traverse.

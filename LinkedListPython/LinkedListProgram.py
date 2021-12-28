@@ -85,15 +85,71 @@ class LinkedList:
                  new_node.nextNode = n.nextNode
                  n.nextNode = new_node
 
+    def remove_begin(self):
+        if self.head is None:
+            print("There are no Node")
+        else:
+            self.head = self.head.nextNode
+    def remove_end(self):
+        if self.head is None:
+            print("The LinkedList is empty")
+        else:
+            n = self.head
+            while n.nextNode.nextNode is not None:
+                n = n.nextNode
+            n.nextNode = None
+
+    def remove_between(self, element):
+        if self.head is None:
+            print("LInked List is empty")
+        if self.head.data == element:
+            self.head = self.head.nextNode
+        else:
+            n = self.head
+            while n is not None:
+                if n.nextNode.data == element:
+                    break
+                n = n.nextNode
+            if n is None:
+                print("Element is not present in the linked list")
+            else:
+                n.nextNode = n.nextNode.nextNode
+
+
+
+
+
 
 if __name__ == '__main__':
     L1  = LinkedList()
+    print("Traverse the Linked List")
     L1.traverse()
+    # print("Adding item at beginning")
     L1.add_begin(34)
     L1.add_begin(43)
+    L1.add_begin(900)
+    # print("adding item at the end ")
     L1.add_end(34)
     L1.add_end(555)
+    # print("adding the item after the node")
     L1.add_after(12,34)
+    # print("adding the item before the node")
     L1.add_before(66,34)
     L1.add_after(7,555)
+
+    L1.traverse()
+    print("remove the item at the beginning")
+
+    L1.remove_begin()
+    L1.traverse()
+    print("remove the item at the end")
+    L1.remove_end()
+    L1.remove_end()
+    L1.traverse()
+
+    print("remove first element")
+    L1.remove_between(66)
+    L1.traverse()
+    print("remove middle element")
+    L1.remove_between(12)
     L1.traverse()

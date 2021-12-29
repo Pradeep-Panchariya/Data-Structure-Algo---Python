@@ -1,9 +1,3 @@
-
-# coding: utf-8
-
-# In[71]:
-
-
 class Node:
     
     def __init__(self, data):
@@ -172,13 +166,4 @@ print(v4)
 obj.addAtHead(6)
 obj.traverse()
 print(obj.length)
-
-
-# In[58]:
-
-
-x=["MyLinkedList","addAtHead","addAtIndex","get","addAtHead","addAtTail","get","addAtTail","get","addAtHead","get","addAtHead"]
-y=[[],[5],[1,2],[1],[6],[2],[3],[1],[5],[2],[2],[6]]
-for x,y in list(zip(x,y)):
-    print(x,y)
 

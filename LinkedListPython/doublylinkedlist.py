@@ -1,11 +1,16 @@
-
+'''
+@Author : Pradee Panchariya
+@Email : panchariya11@gmail.com
+'''
 #Doubly linked List
 
+#Initialize the node class for creating any new node
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
         self.prev = None
+
 
 class DoublyLinkedList:
 
@@ -13,7 +18,8 @@ class DoublyLinkedList:
         self.head = None
         self.length = 0
 
-    #traversing in the forward way begin to end : O(N)
+    #traversing in the forward way begin to end
+    #O(N)
     def traverse_forward(self):
         if self.head is None:
             print("Linked list is empty ")
@@ -25,7 +31,8 @@ class DoublyLinkedList:
             n = n.next
         print()
 
-    #traversing from backward to start : reverse order : O(N)
+    #traversing from backward to start : reverse order
+    #O(N)
     def traverse_backward(self):
         if self.head is None:
             print("Linked list is empty ")
@@ -73,6 +80,11 @@ class DoublyLinkedList:
     #O(N)
     #inserting the new item before the index
     def insert_before(self, index, data):
+        '''
+        :type index : int
+        :type data : int
+        :rtype : None
+        '''
 
         #if index is <0 or greater than legnth then return this message
         if index < 0 or index > self.length :
@@ -94,7 +106,7 @@ class DoublyLinkedList:
                 if i==index-1:
                     break
                 n = n.next
-                print(n.data)
+
             new_node.next = n.next
             n.next = new_node
             new_node.prev = n
@@ -102,10 +114,58 @@ class DoublyLinkedList:
 
 
     #insert the new node after the index
+    #O(N)
     def insert_after(self, index, data):
         self.insert_before(index+1,data)
 
+    #O(1)
+    def remove_begin(self):
+        if self.head is None:
+            print("Doubly linked list is empty")
+            return
+        else:
+            self.length -= 1
+            self.head = self.head.next
+            self.head.prev = None
 
+    #O(N)
+    def remove_end(self):
+
+        if self.head is None:
+            print("Doubly linked list is empty.")
+            return
+        else:
+            self.length -= 1
+            n = self.head
+            while n.next is not None:
+                n = n.next
+            n.prev.next = None
+
+    #O(N)
+    def remove_between(self, index):
+        '''
+        :type index : int
+        :rtype : None
+        '''
+        if self.head is None:
+            print("Doubly list is empty")
+            return
+        elif index < 0 or index > self.length-1:
+            print("Index is out of the range")
+            return
+        elif index == 0 :
+            self.remove_begin()
+        elif index == self.length-1:
+            self.remove_end()
+        else:
+            self.length -= 1
+            n = self.head
+            for i in range(self.length):
+                if i==index:
+                    break
+                n = n.next
+            n.prev.next = n.next
+            n.next.prev = n.prev
 
 if __name__ == '__main__':
     DoublyList = DoublyLinkedList()
@@ -128,3 +188,19 @@ if __name__ == '__main__':
     DoublyList.insert_after(4,"Adam")
     DoublyList.traverse_forward()
     DoublyList.traverse_backward()
+    DoublyList.remove_begin()
+    print("remove the item at the beginning\n.")
+    DoublyList.traverse_forward()
+    DoublyList.traverse_backward()
+    print("remove the item from the end\n")
+    DoublyList.remove_end()
+    DoublyList.traverse_forward()
+    DoublyList.traverse_backward()
+    print("remove at the arbitary location\n ")
+    print("length of list:", DoublyList.length)
+    print()
+    DoublyList.remove_between(2)
+    DoublyList.traverse_forward()
+    DoublyList.traverse_backward()
+    print("length of list:", DoublyList.length)
+    print()

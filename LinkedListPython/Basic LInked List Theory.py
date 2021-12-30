@@ -1,3 +1,7 @@
+"""
+@Author : Pradeep panchariya
+@Email : panchariya11@gmail.com
+"""
 # Insertion and deletion in the linked list : O(1) constant Time complexity
 #For accessing the arbitary element : O(N) running time complexity (Linear).
 

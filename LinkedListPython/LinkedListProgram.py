@@ -1,3 +1,8 @@
+'''
+@Author : Pradee Panchariya
+@Email : panchariya11@gmail.com
+'''
+
 #Traverse the linked List
 #Time complexity : O(N)
 

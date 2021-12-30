@@ -1,5 +1,10 @@
+'''
+@Author : Pradee Panchariya
+@Email : panchariya11@gmail.com
+'''
+
 class Node:
-    
+
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -15,7 +20,7 @@ class MyLinkedList(object):
         :type index: int
         :rtype: int
         """
-        
+
         if self.head is None:
             return -1
         if index==0:
@@ -32,8 +37,8 @@ class MyLinkedList(object):
                 n = n.next
                 ind+=1
         return -1
-        
-        
+
+
 
     def addAtHead(self, val):
         """
@@ -62,7 +67,7 @@ class MyLinkedList(object):
             while n.next is not None:
                 n= n.next
             n.next = new_node
-        
+
 
     def addAtIndex(self, index, val):
         """
@@ -90,11 +95,11 @@ class MyLinkedList(object):
                 ind+=1
             new_node.next = n.next
             n.next = new_node
-            
-            
-                
-        
-        
+
+
+
+
+
 
     def deleteAtIndex(self, index):
         """
@@ -102,9 +107,9 @@ class MyLinkedList(object):
         :rtype: None
         """
         if self.head is None:
-            return 
+            return
         elif index > self.length-1 or index < 0:
-            return 
+            return
         elif index == 0:
             self.head = self.head.next
         else:
@@ -117,10 +122,10 @@ class MyLinkedList(object):
                 n = n.next
                 ind +=1
             n.next = n.next.next
-        
 
 
-            
+
+
 obj = MyLinkedList()
 # Your MyLinkedList object will be instantiated and called as such:
 # x=["MyLinkedList","addAtHead","addAtIndex","get","addAtHead","addAtTail","get","addAtTail","get","addAtHead","get","addAtHead"]
@@ -133,7 +138,7 @@ obj = MyLinkedList()
 #     else:
 #         obj.x(y[0])
 #     obj.traverse()
-    
+
 
 # param_1 = obj.get(index)
 obj.traverse()
@@ -166,4 +171,3 @@ print(v4)
 obj.addAtHead(6)
 obj.traverse()
 print(obj.length)
-

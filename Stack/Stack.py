@@ -4,7 +4,7 @@
 """
 
 #Implementing the stack data structure
-#LIFO : Last in fast out
+#LIFO : Last in first out
 class Stack:
 
     def __init__(self):

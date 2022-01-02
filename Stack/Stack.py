@@ -32,11 +32,13 @@ class Stack:
         return self.stack[-1]
 
     #check whether stack is empty or not
+    #O(1)
     def is_empty(self):
         return self.stack == []
 
     #getting the size (total element) of the stack
-    def size(self):
+    #O(1) : constant running time
+    def size_stack(self):
         return len(self.stack)
 
     #print the Stack
@@ -51,7 +53,7 @@ stack.push(4)
 #print
 stack.print_data()
 #getting the size
-print(stack.size())
+print(stack.size_stack())
 #check whether empty or not True or False
 print(stack.is_empty())
 #removing the item

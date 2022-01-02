@@ -39,9 +39,9 @@ class MaxStack:
     def is_empty(self):
         return self.main_stack==[]
 
-    #O(1) : running time complexity    
+    #O(1) : running time complexity
     def get_max_item(self):
-        return self.max_stack[-1]
+        return self.max_stack.pop()
 
 s = MaxStack()
 s.push(34)
@@ -52,3 +52,4 @@ s.push(2)
 s.push(234)
 
 print("max item: ", s.get_max_item())
+# print(len(s.main_stack),len(s.max_stack))

@@ -36,9 +36,20 @@ class LinkedList:
         else:
             n = self.head
             while n is not None:
-                print(n.data)
+                print(n.data,end="-->")
                 n = n.nextNode
+            print()
 
+    #O(N)/2 : O(N) Time compelxity
+    #interiew question
+    def get_middle_node(self):
+
+        fast_node = self.head
+        slow_node = self.head
+        while fast_node.nextNode is not None and fast_node.nextNode.nextNode is not None:
+            fast_node = fast_node.nextNode.nextNode
+            slow_node = slow_node.nextNode
+        return slow_node.data
     # O(1) - Time complexity
     def add_begin(self, data):
         new_node = Node(data) #Creating the new node
@@ -187,3 +198,11 @@ if __name__ == '__main__':
     L1.remove(34)
     print("Remove the item")
     L1.traverse()
+
+    L1.add_begin(121)
+    L1.traverse()
+    L1.add_begin(12971)
+    L1.traverse()
+#####Interview Question method added:
+    middle_node = L1.get_middle_node()
+    print("Middle Node: ",middle_node)

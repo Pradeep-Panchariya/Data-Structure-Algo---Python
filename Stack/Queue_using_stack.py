@@ -27,11 +27,12 @@ class Queue_Using_Stack:
                 self.dequeue_stack.append(self.enqueue_stack.pop())
         return self.dequeue_stack.pop()
 
-Q = Queue_Using_Stack()
-for i in range(1,10):
-    Q.enqueue(i)
-print("enqueue: ",Q.enqueue_stack,end=", ")
-for i in range(1,4):
-    removed = Q.dequeue()
-    print(r)
-print("dequeue: ",Q.dequeue_stack,end=", ")
+if __name__ == '__main__':
+    Q = Queue_Using_Stack()
+    for i in range(1,10):
+        Q.enqueue(i)
+    print("enqueue: ",Q.enqueue_stack,end=", ")
+    for i in range(1,4):
+        removed = Q.dequeue()
+        print(r)
+    print("dequeue: ",Q.dequeue_stack,end=", ")

@@ -45,21 +45,22 @@ class Queue:
     def print_data(self):
         print(self.queue)
 
-#initialize the queue object
-queue = Queue()
-queue.enqueue(1)
-queue.enqueue(2)
-queue.enqueue(3)
-queue.enqueue(4)
-#print
-queue.print_data()
-#getting the size
-print(queue.size_queue())
-#check whether empty or not True or False
-print(queue.is_empty())
-#removing the item
-last_element = queue.dequeue()
-#print again
-queue.print_data()
-#getting the last element
-lst_ele = queue.peek()
+if __name__ == "__main__":
+    #initialize the queue object
+    queue = Queue()
+    queue.enqueue(1)
+    queue.enqueue(2)
+    queue.enqueue(3)
+    queue.enqueue(4)
+    #print
+    queue.print_data()
+    #getting the size
+    print(queue.size_queue())
+    #check whether empty or not True or False
+    print(queue.is_empty())
+    #removing the item
+    last_element = queue.dequeue()
+    #print again
+    queue.print_data()
+    #getting the last element
+    lst_ele = queue.peek()

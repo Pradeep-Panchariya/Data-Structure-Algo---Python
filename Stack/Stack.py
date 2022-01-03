@@ -44,21 +44,23 @@ class Stack:
     #print the Stack
     def print_data(self):
         print(self.stack)
-#initialize the stack object
-stack = Stack()
-stack.push(1)
-stack.push(2)
-stack.push(3)
-stack.push(4)
-#print
-stack.print_data()
-#getting the size
-print(stack.size_stack())
-#check whether empty or not True or False
-print(stack.is_empty())
-#removing the item
-last_element = stack.pop()
-#print again
-stack.print_data()
-#getting the last element
-lst_ele = stack.peek()
+
+if __name__ == '__main__':
+    #initialize the stack object
+    stack = Stack()
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
+    stack.push(4)
+    #print
+    stack.print_data()
+    #getting the size
+    print(stack.size_stack())
+    #check whether empty or not True or False
+    print(stack.is_empty())
+    #removing the item
+    last_element = stack.pop()
+    #print again
+    stack.print_data()
+    #getting the last element
+    lst_ele = stack.peek()

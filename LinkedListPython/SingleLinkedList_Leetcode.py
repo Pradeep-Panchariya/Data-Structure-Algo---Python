@@ -126,48 +126,49 @@ class MyLinkedList(object):
 
 
 
-obj = MyLinkedList()
-# Your MyLinkedList object will be instantiated and called as such:
-# x=["MyLinkedList","addAtHead","addAtIndex","get","addAtHead","addAtTail","get","addAtTail","get","addAtHead","get","addAtHead"]
-# y=[[],[5],[1,2],[1],[6],[2],[3],[1],[5],[2],[2],[6]]
-# for x,y in list(zip(x,y))[1:]:
-#     if x=='get':
-#         print(obj.x(y[0]))
-#     elif x=='getAtIndex':
-#         obj.x(y[0],y[1])
-#     else:
-#         obj.x(y[0])
-#     obj.traverse()
+if __name__ == '__main__':
+    obj = MyLinkedList()
+    # Your MyLinkedList object will be instantiated and called as such:
+    # x=["MyLinkedList","addAtHead","addAtIndex","get","addAtHead","addAtTail","get","addAtTail","get","addAtHead","get","addAtHead"]
+    # y=[[],[5],[1,2],[1],[6],[2],[3],[1],[5],[2],[2],[6]]
+    # for x,y in list(zip(x,y))[1:]:
+    #     if x=='get':
+    #         print(obj.x(y[0]))
+    #     elif x=='getAtIndex':
+    #         obj.x(y[0],y[1])
+    #     else:
+    #         obj.x(y[0])
+    #     obj.traverse()
 
 
-# param_1 = obj.get(index)
-obj.traverse()
-obj.addAtHead(5)
-print("len: ",obj.length)
-obj.addAtIndex(1,2)
-print("len: ",obj.length)
-obj.traverse()
-v = obj.get(1)
-print(v)
-obj.traverse()
-obj.addAtHead(6)
-print("len: ",obj.length)
-obj.traverse()
-obj.addAtTail(2)
-print("len: ",obj.length)
-obj.traverse()
-v2 = obj.get(3)
-print(v2)
-obj.addAtTail(1)
-print("len: ",obj.length)
-obj.traverse()
-print("len: ",obj.length)
-v3 = obj.get(5)
-print(v3)
-obj.addAtHead(2)
-obj.traverse()
-v4 = obj.get(2)
-print(v4)
-obj.addAtHead(6)
-obj.traverse()
-print(obj.length)
+    # param_1 = obj.get(index)
+    obj.traverse()
+    obj.addAtHead(5)
+    print("len: ",obj.length)
+    obj.addAtIndex(1,2)
+    print("len: ",obj.length)
+    obj.traverse()
+    v = obj.get(1)
+    print(v)
+    obj.traverse()
+    obj.addAtHead(6)
+    print("len: ",obj.length)
+    obj.traverse()
+    obj.addAtTail(2)
+    print("len: ",obj.length)
+    obj.traverse()
+    v2 = obj.get(3)
+    print(v2)
+    obj.addAtTail(1)
+    print("len: ",obj.length)
+    obj.traverse()
+    print("len: ",obj.length)
+    v3 = obj.get(5)
+    print(v3)
+    obj.addAtHead(2)
+    obj.traverse()
+    v4 = obj.get(2)
+    print(v4)
+    obj.addAtHead(6)
+    obj.traverse()
+    print(obj.length)

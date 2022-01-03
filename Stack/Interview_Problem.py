@@ -43,13 +43,14 @@ class MaxStack:
     def get_max_item(self):
         return self.max_stack.pop()
 
-s = MaxStack()
-s.push(34)
-s.push(23)
-s.push(12)
-s.push(67)
-s.push(2)
-s.push(234)
+if __name__ == '__main__':
+    s = MaxStack()
+    s.push(34)
+    s.push(23)
+    s.push(12)
+    s.push(67)
+    s.push(2)
+    s.push(234)
 
-print("max item: ", s.get_max_item())
-# print(len(s.main_stack),len(s.max_stack))
+    print("max item: ", s.get_max_item())
+    # print(len(s.main_stack),len(s.max_stack))

@@ -123,8 +123,73 @@ TYPES OF BINARY TREE:
     1). Full binary tree :
         Every node is 0 or 2 children.
 
-              1
-             / \
-            2   3
-           / \   
-          4  5
+              1                          1
+             / \                        / \
+            2   3                      2   3
+           / \                        /
+          4  5                       4
+
+          ^                                   ^
+          |                                   |
+        This is full binary tree.          This is not full binary tree bcz node 2 has one child which is invalid.
+
+    2). Complete binary TREE.
+        1. all the level except the last level should be completely filled nodes
+        2. for the last level either it should be completely filled or nodes needs to
+           filled from left to right.
+
+                    1       level 0
+                   / \
+                  2   3     level 1
+                 / \  / \
+                4   5 6  7  level 2
+               / \
+              8   9         level 3
+
+
+                                  1       level 0
+                                 / \
+                                2   3     level 1
+                               / \  / \
+                              4   5 6  7  level 2
+                             /
+                            8           level 3
+
+             Both are complete binary tree because all the level all filled with NODES
+             and leaf node is start from left ( Not right)
+
+      3). Perfect binary Tree.
+         All internal nodes contains 2 children and all the leaf nodes present
+         the same level.
+
+                         1
+                        / \
+                       2   3
+                      / \  / \
+                      4  5 6  7
+
+                     this is perfect binary tree.
+
+      4).Balanced binary TREE.
+         A balanced binary tree is a tree in which absolute height difference between left subtree and right
+         subtree should not be greater than 2. it can be 0,1.
+
+         In other word the height difference between any leaf node should not be more than 2.
+
+         1       level 0
+        / \
+       2   3     level 1
+      / \  / \
+     4   5 6  7  level 2
+    /
+   8           level 3
+                                  this is balanced binary tree.
+
+    5).Pathological/degenerate binary tree:
+        Every parent node has only one child.
+
+               1
+              /
+             2
+            /
+           3  

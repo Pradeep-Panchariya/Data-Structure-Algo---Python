@@ -100,6 +100,8 @@ BINARY SEARCH TREE:
          1,16,23,19,10,79,55,32
      In-Order Traversal (sorted order): Left subtree > Root > Right Subtree.
          1,10,16,19,23,32,55,79
+     Level-Order Traversal : Visit level wise
+         32,10,55,1,19,79,16,23
 
 
 Running Time complexity table:
@@ -192,4 +194,4 @@ TYPES OF BINARY TREE:
               /
              2
             /
-           3  
+           3

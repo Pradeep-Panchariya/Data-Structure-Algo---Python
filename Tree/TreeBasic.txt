@@ -1,0 +1,130 @@
+"""
+@Author : Pradeep Panchariya
+@Email : panchariya11@gmail.com
+"""
+
+Q. Why needs Tree data structure?
+   Array can manipulate LAST ITEM quite fast O(1) constant running time.
+   Linked list can manipulate FIRST ITEM quite fast O(1) constant running time complexity.
+   Searching arbitrary item takes O(N) running time for Array and Linked List.
+   If the array data structure is sorted then
+       we can search for arbitrary item in O(logN) running time complexity.
+
+Q What is tree?
+   A tree is G(V,E) undirected graph in which any two vertices are connected by exactly
+   one path or equivalently a connected acyclic undirected graph.
+
+
+1. Tree is Non-Linear data structure.
+2. Tree Terminology.
+
+         A ---------------Level 0
+        / \
+       /   \
+      B    C -------------Level 1
+     / \   / \
+    /   \  /  \
+   D    E  F   G----------Level 2
+
+
+  Tree have NODES : A,B,C,D,E,F,G All are represented as tree Nodes.
+  A is ROOT NODE. All other node are access via the ROOT NODE.
+  Tree relationship is represented as PARENT-CHILD.
+      A->B,C , A is parent and B,C are child of A. B is leftchild and C is rightchild.
+      B->D,E
+      C->F,G
+  Note: If a tree is cyclic then it is not a tree.
+  Leaf Node --> When there is no child for any parent then they are called as Leaf Node
+               D,E,F,G are leaf node.
+  A Binary tree have 0,1 or 2 children.
+  EDGE -> Nodes are connected via edge.
+  HEIGHT of the tree -> From root node to leaf node longest path is called height of the tree.
+          A-B-D, A-C-F,A-C-G so height of the tree is 2.
+  HEIGHT of the Node -> from current node to leaf node (longest path), total number of edges.
+  DEPTH -> it is reverse of the height if we want to know the depth of D then it is calculated
+           as from D to Root node A. D-B-A so depth is 2.
+           total number of edges from root node to particular node.
+  Note: Height of leaf node always 0 and depth of root node always 0.
+      Depth and height of the tree is equal.
+  << Height is From Root node to leaf node , Depth is from the current node to Root node.
+  To calculate the total node of some level: 2 to the power (level)
+  Example : Total node of level 2 is : 2 to the power of (2) = 4 nodes in level 2
+
+  INTERNAL NODE: -> A node which has one or more children.
+  External/Terminal Node -> A node which does not have any children, AKA leaf node.
+  If tree have N nodes then it will have N-1 edges/link.
+     Ex. total N = 7 Nodes, then edge N-1 = 7-1 = 7 Link/edge
+  Tree is recursive data structure.
+  DEGREE OF NODES -> total number of children for specific node.
+                    Degree of node of B is 2 because there are 2 children.
+                    degree of node c is 0 because there is no children.
+  DEGREE OF TREE: calculate all the degree of all the nodes and find the highest DEGREE
+                  so that will be the degree of tree.
+        degree of leaf node is 0.
+
+BINARY SEARCH TREE:
+
+                 12
+                /  \
+               4   20
+             /  \
+            1   5
+
+    * Every Node in the tree can have at MOST 2 children (left child and right child)
+    * left child is smaller than the parent child.
+    * right child is greater than the parent child.
+    * We can access the root node exclusively and all other node access via the root node.
+    Note: if the tree is imbalanced then running time complexity would be O(N).
+          otherwise if the tree is balanced then running time complexity O(LogN).
+
+    Min item in BST : go to the leaf node of the left tree
+    Max item in BST: go to the leaf node of the right tree
+    Remove item in BST: remove the leaf, remove the node with one child,
+                        remove the node with 2 children.
+
+    BINARY SEARCH Tree Traversal :
+
+                32
+               /  \
+              10   55
+             /  \    \
+            1   19    79
+               /  \
+              16   23
+
+     1. In order 2. Pre-order 3. Post-order . Mostly in order used
+
+     Pre-Order Traversal : Root > left subtree > Right subtree.
+         32, 10, 1,19,16,23,55,79
+     Post-Order Traversal : Left subtree > Right subtree > Root
+         1,16,23,19,10,79,55,32
+     In-Order Traversal (sorted order): Left subtree > Root > Right Subtree.
+         1,10,16,19,23,32,55,79
+
+
+Running Time complexity table:
+___________________________________________
+________________|Average case | worst case |
+space complexity| O(N)        | O(N)       |
+Insertion       | O(LogN)     | O(N)       |
+deletion        | O(LogN)     | O(N)       |
+Search          | O(LogN)     | O(N)       |
+________________|_____________|____________|
+
+
+TYPES OF BINARY TREE:
+
+    1. Full binary TREE
+    2. Complete binary TREE
+    3. Perfect binary TREE
+    4. balanced binary TREE
+    5. Pathological binary TREE
+
+    1). Full binary tree :
+        Every node is 0 or 2 children.
+
+              1
+             / \
+            2   3
+           / \   
+          4  5

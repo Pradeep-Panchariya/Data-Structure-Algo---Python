@@ -19,6 +19,7 @@ class BST :
         self.right_child = None
 
     #insert the new key in the tree .
+    # Avg case : O(LogN), worst cast : O(N) (If tree is imbalanced)
     def insert(self, data):
         #if the tree is empty
         #here self is also treat as a ROOT NODE. Object of the Tree when it first initialize
@@ -52,10 +53,88 @@ class BST :
                 self.right_child = BST(data)
 
 
+    #Search the item in the Tree, if the given item is present or not
+    # Avg case : O(LogN), worst cast : O(N) (If tree is imbalanced)
+    def search(self, data):
+        # if the key is present return 1 else return -1
+        if self.key == data:
+            print(data," is present")
+            return
+        # if data is greater than key then search in the right subtree
+        if data > self.key:
+            # if the left child is empty
+            if not self.right_child:
+                print(data," is not present")
+                return
+            else:
+                self.right_child.search(data)
+        # if datais smaller than key then search in the left subtree
+        else:
+            if not self.left_child:
+                print(data," is not present")
+                return
+            else:
+                self.left_child.search(data)
+
+    #Pre Order traversal : Root, Left, Right
+    def preorder_traversal(self):
+        print(self.key,end=', ')
+        if self.left_child:
+            self.left_child.preorder_traversal()
+        if self.right_child:
+            self.right_child.preorder_traversal()
+
+    #In order traversal : left, root, right
+    def inorder_traversal(self):
+        if self.left_child:
+            self.left_child.inorder_traversal()
+        print(self.key, end = ', ')
+        if self.right_child:
+            self.right_child.inorder_traversal()
+
+    #Post order : Left, right, root
+    def postorder_traversal(self):
+        #traverse until we do not find the left child empty
+        if self.left_child:
+            self.left_child.postorder_traversal()
+        #taverse till the right child is not empty.
+        if self.right_child:
+            self.right_child.postorder_traversal()
+        print(self.key, end=', ')
+
+    #find the max item in the tree : go leaf node of the right child
+    def find_max(self):
+        if self.right_child:
+            self.right_child.find_max()
+        else:
+            print(self.key)
+
+    #find the minimum item in the tree; : go to the leaf node of the left child
+    def find_min(self):
+        if self.left_child is not None: # self.left_child
+            self.left_child.find_min()
+        #if we reached the leaf node then get the key and print it
+        else:
+            print(self.key)
+
 
 # executing the program
 if __name__ == '__main__':
     root = BST(10)
     keys = [2,5,12,57,7,6]
     for key in keys:
-        root.insert(key)
+        root.insert(key)#behind the underhood : BST.insert(root,key) = root.insert(key)
+        # BST.insert(root,key)
+    print("Search the item 2 in the tree:")
+    root.search(2)
+    print()
+    print("PreOrder Traversal: ")
+    root.preorder_traversal()
+    print("\nInOrder Traversal:")
+    root.inorder_traversal()
+    print("\nPostOrder Traversal:")
+    root.postorder_traversal()
+    print("\n\nMaximum item in the tree:",end=" ")
+    root.find_max()
+    print("\nMinimum item in the tree:",end=" ")
+    root.find_min()

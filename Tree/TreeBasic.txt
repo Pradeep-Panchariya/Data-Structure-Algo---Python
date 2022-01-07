@@ -94,6 +94,10 @@ BINARY SEARCH TREE:
 
      1. In order 2. Pre-order 3. Post-order . Mostly in order used
 
+     Trick for remember :
+        PreOrder    Inorder    PostOrder
+                  left root right
+        root left right          left right root 
      Pre-Order Traversal : Root > left subtree > Right subtree.
          32, 10, 1,19,16,23,55,79
      Post-Order Traversal : Left subtree > Right subtree > Root

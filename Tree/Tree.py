@@ -117,11 +117,78 @@ class BST :
         else:
             print(self.key)
 
+    #delte the node
+    def delete(self, data,first_root_node):
+        #check if the tree is empty or not
+        if self.key is None:
+            print("Tree is empty")
+            return
+        #search if the search item is present in the tree or not
+          #if the searching data is smaller than current key of node search in left Subtree
+        if self.key > data :
+            # check whether left subtree is empty or not
+            if self.left_child: # self.left_child is not None
+                #storing the return value to the self.left_child object
+                self.left_child = self.left_child.delete(data,first_root_node)
+            else:
+                print("Data is not present in Tree")
+        #if the searching data is greater than the root key go to right child
+        elif self.key < data:
+            #check whether right subtree is empty or not
+            if self.right_child:
+                #storing or referencing the return value of recursive fun to the right children
+                self.right_child = self.right_child.delete(data,first_root_node)
+            else:
+                print("Data is not present in Tree")
+
+        #if data is found then process following steps
+        else:
+            #it is valid for if the root not has one child or 0 child
+            #check if the left child is None for the found data : which gonna to delete
+            if self.left_child is None:
+                #store the address of current right child  node : delete node
+                temp = self.right_child
+                if first_root_node==data:
+                    self.key = temp.key
+                    self.left_child = temp.left_child
+                    self.right_child = temp.right_child
+                    temp = None
+                    return
+                self = None # deleting the node
+                return temp #connect the right child reference to the root node
+            elif self.right_child is None:
+                temp = self.left_child
+                if first_root_node == data:
+                    self.key = temp.key
+                    self.left_child = temp.left_child
+                    self.right_child = temp.right_child
+                    temp = None
+                    return
+                self = None
+                return temp
+            #if the root has left and right child : present both child
+            #first replace the root node with smaller value of it left child
+            node = self.right_child
+            while node.left_child:
+                node = node.left_child
+            #replace root node with smallest value
+            self.key = node.key
+            self.right_child = self.right_child.delete(node.key,first_root_node)
+        return self
+
+#counting the total number of nodes present in tree
+def count_node(node):
+    if node is None:
+        return 0
+    return 1+count_node(node.left_child)+count_node(node.right_child)
+
+
 
 # executing the program
 if __name__ == '__main__':
     root = BST(10)
-    keys = [2,5,12,57,7,6]
+    keys = [2,5,12,57,7,1]
+    # keys=[2]
     for key in keys:
         root.insert(key)#behind the underhood : BST.insert(root,key) = root.insert(key)
         # BST.insert(root,key)
@@ -138,3 +205,12 @@ if __name__ == '__main__':
     root.find_max()
     print("\nMinimum item in the tree:",end=" ")
     root.find_min()
+    #delete the node
+    #if the count of node is more than 1 then perform delete operation
+    if count_node(root)>1:
+        root.delete(10,root.key)#Root.key : check if there is only one node and it has one or two child.
+    #Oterwise print the msg that there are only onde node, we will not delete it.
+    else:
+        print("Can not delete root node, present only one item in tree")
+    print()
+    root.inorder_traversal()

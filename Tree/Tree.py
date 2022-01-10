@@ -176,6 +176,15 @@ class BST :
             self.right_child = self.right_child.delete(node.key,first_root_node)
         return self
 
+#Interview Question
+#Compare if two tree are equa or not
+def compare_tree(node1, node2):
+    if node1 is None or node2 is None:
+        return node1==node2
+    if node1.key is not node2.key:
+        return False
+    return compare_tree(node1.left_child,node2.left_child) and compare_tree(node1.right_child,node2.right_child)
+
 #counting the total number of nodes present in tree
 def count_node(node):
     if node is None:
@@ -214,3 +223,14 @@ if __name__ == '__main__':
         print("Can not delete root node, present only one item in tree")
     print()
     root.inorder_traversal()
+
+    #comparing two trees
+    node1 = BST(10)
+    keys = [2,10,4,5,7,8]
+    for key in keys:
+        node1.insert(key)
+    node2 = BST(10)
+    keys = [2,10,44,5,7,8]
+    for key in keys:
+        node2.insert(key)
+    print("\ntwo tree is equal or not? ",compare_tree(node1,node2))

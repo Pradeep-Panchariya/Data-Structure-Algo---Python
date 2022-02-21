@@ -5,12 +5,10 @@
 
 def add_node(node):
     global node_counts
-    #check whether node is already present or not in the graph
     if node in nodes:
         print("This node is already presented.")
     else:
-        
-        node_counts += 1 #count the total number of nodes
+        node_counts += 1
         nodes.append(node)
         for n in graph:
             n.append(0)
@@ -22,13 +20,6 @@ def add_node(node):
 
 # add undirected/directed and unweighted/weighted edge
 def add_edge(v1, v2, cost=1,type='undirected'):
-  """
-  v1 : verties v1
-  v2 : verties v2
-  cost : by default 1 
-  type: directed/undirected
-  rtype : None
-  """
     if not v1 in nodes:
         print(v1, " node is not present")
     elif not v2 in nodes:
@@ -42,7 +33,32 @@ def add_edge(v1, v2, cost=1,type='undirected'):
         elif type=='directed':
             graph[index_v1][index_v2]=cost
 
+def delete_node(v):
+    global node_counts
+    if not v in nodes:
+        print(v," is not present in the graph")
+    else:
+        index_v = nodes.index(v)
+        node_counts-=1
+        nodes.remove((v))
+        for n in graph:
+            n.pop(index_v)
+        graph.pop(index_v)
 
+
+def delete_edge(v1,v2,type='undirected'):
+    if not v1 in nodes:
+        print(v1, " is not present in graph")
+    elif not v2 in nodes:
+        print(v2, " is not presetn in graph")
+    else:
+        index_v1 = nodes.index(v1)
+        index_v2 = nodes.index(v2)
+        if type=='undirected':
+            graph[index_v1][index_v2]=0
+            graph[index_v2][index_v1]=0
+        elif type=='directed':
+            graph[index_v1][index_v2]=0
 
 def print_graph():
     for i in range(len(graph)):
@@ -71,3 +87,8 @@ print("Graph: ", graph)
 add_edge("A", "C",78,'undirected')
 print_graph()
 print(graph)
+delete_node("B")
+print_graph()
+print(graph)
+delete_edge('A','C',type='undirected')
+print_graph()
